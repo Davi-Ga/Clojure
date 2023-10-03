@@ -1,20 +1,18 @@
-(defn double-+
-    [a b]
-    (* 2 (+ a b))
-  )
-  
-  (filter even? (range 0 10)) ;; a função interna é executada antes do que a interna (even == número par )
-  
-  
-  ;;filtrar bandas de Rock
-  (def bands [
-    {:name "Brown Beaters"   :genre :rock}
-    {:name "Sunday Sunshine" :genre :blues}
-    {:name "Foolish Beaters" :genre :rock}
-    {:name "Monday Blues"    :genre :blues}
-    {:name "Friday Fewer"    :genre :blues}
-    {:name "Saturday Stars"  :genre :jazz}
-    {:name "Sunday Brunch"   :genre :jazz}
-  ])
-  
-  (filter #(= :rock (:genre %)) bands)
+(def data
+  [{:i 15, :f 16}
+   {:i 8, :f 9}
+   {:i 10, :f 12}
+   {:i 9, :f 10}])
+
+(defn ordenar-e-verificar [dados]
+  (reduce (fn [acc cur]
+            (if (and (>= (:i cur) (:i acc)) (<= (:i cur) (:f acc)))
+              (if (>= (:f cur) (:f acc))
+                cur
+                acc)
+              (if (>= (:i cur) (:f acc))
+                cur
+                acc))) (sort-by :i dados)))
+
+(ordenar-e-verificar data)
+
