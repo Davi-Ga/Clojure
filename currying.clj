@@ -12,4 +12,6 @@
 
 (println (((curried-add 2) 2) 2)) 
 
+;;função fragmentada, cada função é responsavel por um argunmento
+
 

@@ -7,12 +7,24 @@
 (defn ordenar-e-verificar [dados]
   (reduce (fn [acc cur]
             (if (and (>= (:i cur) (:i acc)) (<= (:i cur) (:f acc)))
+            ;; if ((:i cur) >= (:i acc) and (:i cur) <= (:f acc))
               (if (>= (:f cur) (:f acc))
+              ;; if (:f cur) >= (:f acc)
                 cur
+                ;; return cur
+                ;; else
                 acc)
+                ;; return acc
+                
               (if (>= (:i cur) (:f acc))
+              ;; if (:i cur) >= (:f acc)
                 cur
-                acc))) (sort-by :i dados)))
+                ;; return cur
+                ;; elses
+                acc)
+                ;; return acc
+                )) (sort-by :i dados)))
+                ;; ordena 
 
 (ordenar-e-verificar data)
 

@@ -4,4 +4,6 @@
       (fn value)
       (throw (IllegalArgumentException. "A segunda argumento deve ser uma função")))))
 
-((tap 'função') (fn [x] (+ x x)))
+((tap 5) (fn [x] (+ x x)))
+
+;;acessar a função sendo definida fora de def, pq ela é criada na hr

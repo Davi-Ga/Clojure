@@ -3,6 +3,7 @@
       (fn [] (swap! contador inc) @contador) 
       )
     )
+    ;; acessar variaveis fora do escopo 
     
 (som) 
 (som)
