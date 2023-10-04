@@ -6,10 +6,11 @@
  
 
  (defn mochila [itens w]
-   (reduce (fn [acc cur]
+   (reduce (fn [acc  cur]
              (if (<= (- (:peso cur) w) 0)
-               (println " cabe")
-               (println "Não cabe"))
+               (- w (:peso cur) (+ acc (:valor cur)))
+
+               acc)
              ) (sort-by (fn [x] (/ (:peso x) (:valor x))) itens)))
 
 (mochila itens 15) 
