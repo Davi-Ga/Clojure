@@ -4,4 +4,4 @@
       (fn value)
       (throw (IllegalArgumentException. "A segunda argumento deve ser uma função")))))
 
-((tap 'função') (fn [x] (+ x x)))
+((tap 2) (fn [x] (+ x x)))

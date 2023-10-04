@@ -1,30 +1,35 @@
 (def dados
-  [{:titulo "Exercício de academia", :cargaHoraria 10, :categoria "curso"}
-   {:titulo "dasdasdsa academia", :cargaHoraria 20, :categoria "curso"}
-   {:titulo "fdsfdsfsd academia", :cargaHoraria 30, :categoria "curso"}
-   {:titulo "gfdgfd academia", :cargaHoraria 40, :categoria "projeto"}
-   {:titulo "arte sdsa da", :cargaHoraria 10, :categoria "curso"}
-   {:titulo "dsasa arte dsadas", :cargaHoraria 20, :categoria "projeto"}
-   {:titulo "dsadsa arte dsadas", :cargaHoraria 20, :categoria "curso"}
-   {:titulo "dsds arte", :cargaHoraria 30, :categoria "projeto"}])
+  [{:titulo "Livro 1", :categoria "Ficção"}
+   {:titulo "Livro 2", :categoria "Não Ficção"}
+   {:titulo "Livro 3", :categoria "Ficção"}
+   {:titulo "Livro 4", :categoria "Não Ficção"}])
 
 (defn filtro [arr]
   (let [state (atom arr)]
-    (fn [tit]
-      (swap! state (fn [s]
-                     (filter #(or (<= (count tit) 0)
+    (fn titulo [tit]
+      (swap! state (fn titulo [s]
+                     [](filter #(or (<= (count tit) 0)
                                   (not (nil? (re-find (re-pattern (str tit)) (:titulo %)))))
                              s)))
       (fn [fcomp]
-        (swap! state (fn [s]
+        (swap! state (fn compara [s]
                        (filter #(or (nil? fcomp)
                                     (fcomp (:categoria %)))
                                s)))
         (fn [cat]
-          (swap! state (fn [s]
+          (swap! state (fn categoria[s]
                          (filter #(or (<= (count cat) 0)
                                       (= cat (:categoria %)))
                                  s)))
           @state)))))
 
-(filtro dados)
+
+
+(def filtrar-dados
+  (filtro dados))
+
+(def dados-filtrados-1
+  (filtrar-dados "Livro 1"))
+
+(println dados-filtrados-1)
+ 
