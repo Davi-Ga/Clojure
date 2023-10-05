@@ -10,6 +10,6 @@
 
 (def curried-add (curry add))
 
-(println (((curried-add 2) 2) 2)) 
+(println (((curried-add 2) 2) )) 
 
 

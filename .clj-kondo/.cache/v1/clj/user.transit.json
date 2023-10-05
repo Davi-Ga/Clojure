@@ -1,0 +1,1 @@
+["^ ","~$zip",["^ ","~:row",1,"~:col",1,"~:fixed-arities",["~#set",[3]],"~:name","^0","~:ns","~$user","~:top-ns",null,"~:arities",["^ ","~i3",["^ ","~:ret","~:vector","~:arglist-str","[a b fn]"]],"~:type","~:fn"],"~:filename","/home/daviga/projects/paradigmas/Clojure/zip.clj"]
